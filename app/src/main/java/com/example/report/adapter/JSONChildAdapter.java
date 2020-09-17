@@ -33,8 +33,10 @@ public class JSONChildAdapter extends RecyclerView.Adapter<JSONChildAdapter.JSON
     public void onBindViewHolder(@NonNull JSONChildHolder childViewHolder, int position) {
 
         ChildTransactionDetailList childItem = ChildItemList.get(position);
-        childViewHolder.TransactionID.setText("Transaction ID : " + childItem.getTransactionID());
-        childViewHolder.Name.setText("Merchant Name : " + childItem.getName());
+        childViewHolder.TransactionID.setText(childItem.getTransactionID());
+        childViewHolder.TransactionKyat.setText("+ "+childItem.getAmount()+" .00 MMK");
+        childViewHolder.Phone.setText("From - "+childItem.getPhone());
+        childViewHolder.Time.setText(childItem.getTime());
     }
 
     @Override
@@ -44,12 +46,17 @@ public class JSONChildAdapter extends RecyclerView.Adapter<JSONChildAdapter.JSON
 
     public class JSONChildHolder extends RecyclerView.ViewHolder {
         TextView TransactionID;
-        TextView Name;
+        TextView TransactionKyat;
+        TextView Phone;
+        TextView Time;
 
         public JSONChildHolder(@NonNull View itemView) {
             super(itemView);
             TransactionID = itemView.findViewById(R.id.tran_ID);
-            Name = itemView.findViewById(R.id.tran_name);
+            TransactionKyat = itemView.findViewById(R.id.tran_kyat);
+            Phone=itemView.findViewById(R.id.tran_phone);
+            Time=itemView.findViewById(R.id.tran_time);
+
         }
     }
 }

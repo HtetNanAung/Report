@@ -5,7 +5,63 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Report">
+    tools:context=".Report"
+    android:layout_marginBottom="10dp"
+    >
+
+    <include
+        layout="@layout/custom_tool_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/fifteen"
+        android:paddingTop="@dimen/fifteen">
+
+        <ImageView
+            android:layout_width="@dimen/img_width"
+            android:layout_height="@dimen/img_height"
+            android:src="@drawable/revenue">
+
+        </ImageView>
+
+        <TextView
+            android:id="@+id/Total_revenue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:paddingLeft="@dimen/fifteen"
+            android:text="Total Revenue"
+            android:textColor="#000000"
+            android:textSize="@dimen/textsixteen"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/fifteen"
+        android:paddingTop="8dp">
+
+        <ImageView
+            android:layout_width="@dimen/img_width"
+            android:layout_height="@dimen/img_height"
+            android:src="@drawable/transaction">
+
+        </ImageView>
+
+        <TextView
+            android:id="@+id/count"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/fifteen"
+            android:text="TransactionCount"
+            android:textColor="#000000"
+            android:textSize="@dimen/textsixteen"/>
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -16,11 +72,10 @@
             android:id="@+id/my_recycler_view2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginEnd="15dp"
-            tools:listitem="@layout/parent_list_item"
-            />
+            android:layout_marginTop="@dimen/eighteen"
+            android:layout_marginStart="@dimen/fifteen"
+            android:layout_marginEnd="@dimen/fifteen"
+            tools:listitem="@layout/parent_list_item" />
 
     </LinearLayout>
 </LinearLayout>

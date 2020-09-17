@@ -1,6 +1,7 @@
 package com.example.report.adapter;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +13,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.report.R;
 import com.example.report.pojo.ParentTransactionDetailList;
+import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration;
+import com.yqritc.recyclerviewflexibledivider.VerticalDividerItemDecoration;
 
 import java.util.List;
 
@@ -37,7 +40,7 @@ public class JSONParentAdapter extends RecyclerView.Adapter<JSONParentAdapter.JS
     public void onBindViewHolder(@NonNull JSONHolder holder, int position) {
         ParentTransactionDetailList parentItem = itemList.get(position);
 //        ParentTransactionDetailList parentItem = (ParentTransactionDetailList) listRecyclerItem.get(position);
-        holder.ParentItemDate.setText("Date " + parentItem.getDate());
+        holder.ParentItemDate.setText(parentItem.getDate());
         LinearLayoutManager layoutManager = new LinearLayoutManager(holder.ChildRecyclerView.getContext(), LinearLayoutManager.VERTICAL,
                 false);
         layoutManager.setInitialPrefetchItemCount(parentItem.getChild().size());
@@ -59,6 +62,11 @@ public class JSONParentAdapter extends RecyclerView.Adapter<JSONParentAdapter.JS
             super(itemView);
             ParentItemDate = itemView.findViewById(R.id.name);
             ChildRecyclerView = itemView.findViewById(R.id.json_child_recyclerview);
+            ChildRecyclerView.addItemDecoration(
+                    new HorizontalDividerItemDecoration.Builder(ChildRecyclerView.getContext())
+                            .margin(5, 5)
+                            .build());
+          //ChildRecyclerView.addItemDecoration(new HorizontalDividerItemDecoration.Builder(ChildRecyclerView.getContext()).build());
         }
     }
 }
